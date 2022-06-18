@@ -72,7 +72,7 @@ data_bit=35
 clock=31
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 msb=255,256 # most significant bits
-lsb=127,128   # least significant bits
+lsb=127,128 # least significant bits
 
 led_speed=.5 # pause duration
 
