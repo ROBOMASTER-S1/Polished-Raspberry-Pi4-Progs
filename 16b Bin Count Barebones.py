@@ -119,8 +119,6 @@ while True:
 # a KeyboardInterrupt handler to force
 # the GPIO pins to return to a low state/off.
 
-# GPIO.cleanup() sets all GPIO pins to LOW/OFF
-
     except KeyboardInterrupt:
         exec(stop_program_message)  # GPIO notification message
 
