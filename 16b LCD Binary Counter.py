@@ -11,7 +11,7 @@
 
 # Items needed are as follows:
 
-# Respberry Pi = 1
+# Respberry Pi 4 = 1
 # breadboard = 1 or more depending
 # LCD display = 1
 # 74HC595 shift register = 1
@@ -25,7 +25,7 @@
 
 # 16b LCD Binary Counter Python program example:
 
-# This Raspberry Pi Python program allows
+# This Raspberry Pi 4 Python program allows
 # users to learn all about how binary data
 # bits work with the 74HC595 shift register.
 
