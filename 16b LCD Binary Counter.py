@@ -17,7 +17,7 @@
 # 74HC595 shift register = 1
 # LEDs = 16
 # 220 ohm resistor = 16
-# jumper wire = 20 or more +2 for the Rasp pi 4 fan
+# jumper wire = 38 or more +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
@@ -78,7 +78,7 @@ clock=31
 msb=65535,65536 # most significant bits
 lsb=32767,32768 # least significant bits
 
-led_speed=.5
+led_speed=.5 # pause duration
 
 stop_program_message='''
 print('Stop program Execution/run:')
