@@ -25,7 +25,7 @@
 
 # 8b LCD Binary Counter Python program example:
 
-# This Raspberry Pi Python program allows
+# This Raspberry Pi 4 Python program allows
 # users to learn all about how binary data
 # bits work with the 74HC595 shift register.
 
@@ -78,7 +78,7 @@ clock=31
 msb=255,256 # most significant bits
 lsb=127,128 # least significant bits
 
-led_speed=.5
+led_speed=.5 # pause duration
 
 stop_program_message='''
 print('Stop program Execution/run:')
