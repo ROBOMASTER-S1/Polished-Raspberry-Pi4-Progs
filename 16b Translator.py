@@ -12,7 +12,7 @@
 # Items needed are as follows:
 
 # Respberry Pi 4 = 1
-# breadboard = 1
+# breadboard = 1 or more depending
 # LCD display = 1
 # 74HC595 shift register = 2
 # LEDs = 16
