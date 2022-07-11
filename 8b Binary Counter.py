@@ -12,14 +12,14 @@
 # Items needed are as follows:
 
 # Respberry Pi 4 = 1
-# breadboard = 1
+# breadboard = 1 or more depending
 # 74HC595 shift register = 1
 # LEDs = 8
 # 220 ohm resistor = 8
-# jumper wire = 19 or more +2 for the Rasp pi 4 fan
+# jumper wire = 20 or more +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
-# the Raspberry Pi fan, while in use/
+# the Raspberry Pi 4 fan, while in use/
 # operation.
 
 # 8b Binary Counter Python program example:
