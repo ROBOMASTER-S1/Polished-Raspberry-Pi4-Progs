@@ -24,7 +24,7 @@
 
 # This Raspberry Pi 4 Python program allows
 # users to learn all about how the LCD display
-# works with text and graphics
+# works with text and graphics.
 
 # We will use the breadboard method:
 
