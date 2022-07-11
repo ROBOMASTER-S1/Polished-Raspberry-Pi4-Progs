@@ -17,7 +17,7 @@
 # 74HC595 shift register = 2
 # LEDs = 16
 # 220 ohm resistor = 16
-# jumper wire = 39 or more +2 for the Rasp pi 4 fan
+# jumper wire = 38 or more +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
