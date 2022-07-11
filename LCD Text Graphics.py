@@ -64,8 +64,6 @@ display.lcd_clear() # clear the LCD screen
 # understand what's happening throughout the program's
 # execution/run.
 
-import drivers
-
 display=drivers.Lcd() # cannot rename
 
 c = drivers.CustomCharacters(display) # cannot rename
