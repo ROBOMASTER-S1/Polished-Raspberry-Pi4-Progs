@@ -64,8 +64,6 @@ display.lcd_clear() # clear the LCD screen
 # understand what's happening throughout the program's
 # execution/run.
 
-display=drivers.Lcd() # cannot rename
-
 stop_program_message='''
 print('Stop program Execution/run:')
 print('cleanup/release all GPIO pinouts \
