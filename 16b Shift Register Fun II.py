@@ -82,22 +82,16 @@ control_shift=data_bit,latch,clock
 
 for i in control_shift:GPIO.setup(i,GPIO.OUT) # setup desired GPIO pinouts
 
-try:
-    for i in range(16):            
-        GPIO.output(latch,0)
-        GPIO.output(data_bit,0)
-        GPIO.output(clock,1)
-        GPIO.output(latch,1)
-        GPIO.output(clock,0)
-
-    while True:
-        randvalue=random.randint(0,1)
-        GPIO.output(latch,0)
-        GPIO.output(data_bit,int(randvalue))
-        GPIO.output(clock,1)
-        GPIO.output(latch,1)
-        GPIO.output(clock,0)
-        wait(led_speed)
+while True:
+    try:
+        for i in range(16):
+            randvalue=random.randint(0,1)
+            GPIO.output(latch,0)
+            GPIO.output(data_bit,int(randvalue))
+            GPIO.output(clock,1)
+            GPIO.output(latch,1)
+            GPIO.output(clock,0)
+            wait(led_speed)
 
 # Note: it is recomended that you setup
 # a KeyboardInterrupt handler to force
@@ -105,13 +99,14 @@ try:
 
 # GPIO.cleanup() sets all GPIO pins to LOW/OFF
 
-except KeyboardInterrupt:
-    exec(stop_program_message) # GPIO notification message
-    
-    for i in range(16):            
-        GPIO.output(latch,0)
-        GPIO.output(data_bit,0)
-        GPIO.output(clock,1)
-        GPIO.output(latch,1)
-        GPIO.output(clock,0)
-    GPIO.cleanup()
+    except KeyboardInterrupt:
+        exec(stop_program_message) # GPIO notification message
+        
+        for i in range(16):            
+            GPIO.output(latch,0)
+            GPIO.output(data_bit,0)
+            GPIO.output(clock,1)
+            GPIO.output(latch,1)
+            GPIO.output(clock,0)
+        GPIO.cleanup()
+        break
