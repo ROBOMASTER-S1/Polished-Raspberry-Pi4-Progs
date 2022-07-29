@@ -91,7 +91,7 @@ while True:
             GPIO.output(clock,1)
             GPIO.output(latch,1)
             GPIO.output(clock,0)
-            wait(led_speed)
+        wait(led_speed)
 
 # Note: it is recomended that you setup
 # a KeyboardInterrupt handler to force
