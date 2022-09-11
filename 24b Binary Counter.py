@@ -26,7 +26,7 @@
 
 # This Raspberry Pi 4 Python program allows
 # users to learn all about how binary data
-# bits work with three 74HC595 shift registers.
+# bits work with three 8b 74HC595 shift registers.
 
 # We will use the breadboard method:
 
