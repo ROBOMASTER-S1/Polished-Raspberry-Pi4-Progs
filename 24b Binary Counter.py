@@ -87,7 +87,7 @@ for i in control_shift:GPIO.setup(i,GPIO.OUT)  # setup desired GPIO pinouts
 
 for i in range(24):
     GPIO.output(latch,0)
-    GPIO.output(data_bit,0)  # set all 16 data bits to 0/off
+    GPIO.output(data_bit,0)  # set all 24 data bits to 0/off
     GPIO.output(clock,1)
     GPIO.output(latch,1)
     GPIO.output(clock,0)
@@ -124,7 +124,7 @@ while True:
 
         for i in range(24):
             GPIO.output(latch,0)
-            GPIO.output(data_bit,0) # set all 16 data bits to 0/off
+            GPIO.output(data_bit,0) # set all 24 data bits to 0/off
             GPIO.output(clock,1)
             GPIO.output(latch,1)
             GPIO.output(clock,0)
