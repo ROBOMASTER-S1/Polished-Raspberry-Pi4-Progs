@@ -112,7 +112,6 @@ try:
             GPIO.output(latch,1)
             GPIO.output(clock,0)
         wait(led_speed)
-    break
 
 # Note: it is recomended that you setup
 # a KeyboardInterrupt handler to force
@@ -129,4 +128,3 @@ except KeyboardInterrupt:
         GPIO.output(clock,0)
 
     GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
-    break
