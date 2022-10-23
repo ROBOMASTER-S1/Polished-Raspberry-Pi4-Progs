@@ -16,7 +16,7 @@
 # 74HC595 shift register = 1
 # LEDs = 8
 # 220 ohm resistor = 8
-# jumper wire = 20 or more +2 for the Rasp pi 4 fan
+# jumper wire = 8 or more +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
@@ -92,42 +92,39 @@ for i in range(8):
     GPIO.output(latch,1)
     GPIO.output(clock,0)
 
-while True:
-    try:
-        for i in range(msb[0],lsb[0],-1): # reverse forloop and step value -1
-            bin=f'{i:b}'
-            for j in range(8):
-                GPIO.output(latch,0)
-                GPIO.output(data_bit,int(bin[j])-1) # with 2's complement value -1
-                GPIO.output(clock,1)
-                GPIO.output(latch,1)
-                GPIO.output(clock,0)
-            wait(led_speed)
+try:
+    for i in range(msb[0],lsb[0],-1): # reverse forloop and step value -1
+        bin=f'{i:b}'
+        for j in range(8):
+            GPIO.output(latch,0)
+            GPIO.output(data_bit,int(bin[j])-1) # with 2's complement value -1
+            GPIO.output(clock,1)
+            GPIO.output(latch,1)
+            GPIO.output(clock,0)
+        wait(led_speed)
 
-        for i in range(lsb[1],msb[1]): # forward forloop
-            bin=f'{i:b}'
-            for j in range(8):
-                GPIO.output(latch,0)
-                GPIO.output(data_bit,int(bin[j])) # without 2's complement
-                GPIO.output(clock,1)
-                GPIO.output(latch,1)
-                GPIO.output(clock,0)
-            wait(led_speed)
-        break
+    for i in range(lsb[1],msb[1]): # forward forloop
+        bin=f'{i:b}'
+        for j in range(8):
+            GPIO.output(latch,0)
+            GPIO.output(data_bit,int(bin[j])) # without 2's complement
+            GPIO.output(clock,1)
+            GPIO.output(latch,1)
+            GPIO.output(clock,0)
+        wait(led_speed)
 
 # Note: it is recomended that you setup
 # a KeyboardInterrupt handler to force
 # the GPIO pins to return to a low state/off.
 
-    except KeyboardInterrupt:
-        exec(stop_program_message) # GPIO notification message
+except KeyboardInterrupt:
+    exec(stop_program_message) # GPIO notification message
 
-        for i in range(8):
-            GPIO.output(latch,0)
-            GPIO.output(data_bit,0) # set all 8 data bits to 0/off
-            GPIO.output(clock,1)
-            GPIO.output(latch,1)
-            GPIO.output(clock,0)
+    for i in range(8):
+        GPIO.output(latch,0)
+        GPIO.output(data_bit,0) # set all 8 data bits to 0/off
+        GPIO.output(clock,1)
+        GPIO.output(latch,1)
+        GPIO.output(clock,0)
 
-        GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
-        break
+    GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
