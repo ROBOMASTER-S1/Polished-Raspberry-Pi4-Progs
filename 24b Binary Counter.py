@@ -16,7 +16,7 @@
 # 74HC595 shift register = 3
 # LEDs = 24
 # 220 ohm resistor = 24
-# jumper wire = 32 or more +2 for the Rasp pi 4 fan
+# jumper wire = 24 or more +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
@@ -71,6 +71,8 @@ latch=19
 data_bit=21
 clock=15
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# Read numbers easier with the underscore_character.
+
 msb=16_777_215,16_777_216 # most significant bits
 lsb=8_388_607,8_388_608 # least significant bits
 
