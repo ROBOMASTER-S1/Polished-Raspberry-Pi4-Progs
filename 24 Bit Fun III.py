@@ -14,7 +14,7 @@
 # Respberry Pi 4 = 1
 # breadboard = 1 or more depending
 # 74HC595 shift register = 3
-# active buzzer = 2
+# 5V active buzzer = 2
 # infrared motion sensor = 1
 # bar graph LED = 1
 # LEDs = 14
