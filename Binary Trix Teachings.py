@@ -1,4 +1,4 @@
-# 24b LED Binary Counter Trix Python program example:
+# 24b LED Binary Counter Trix Teachings Python program example:
 
 # Created by Joseph C. Richardson, GitHub.com
 
