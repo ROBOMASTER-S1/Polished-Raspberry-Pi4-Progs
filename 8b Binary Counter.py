@@ -16,7 +16,7 @@
 # 74HC595 shift register = 1
 # LEDs = 8
 # 220 ohm resistor = 8
-# jumper wire = 8 or more +2 for the Rasp pi 4 fan
+# jumper wire = 15 +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
@@ -67,9 +67,9 @@ GPIO.setwarnings(False) # disable setwarnings
 # You must place these variables in this correct order as shown.
 # These pinout values won't execute right if you don't.
 
-latch=33
-data_bit=35
-clock=31
+latch=35
+data_bit=37
+clock=33
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 msb=255,256 # most significant bits
 lsb=127,128 # least significant bits
