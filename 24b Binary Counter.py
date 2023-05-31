@@ -11,12 +11,12 @@
 
 # Items needed are as follows:
 
-# Respberry Pi 4 = 1
+# Raspberry Pi 4 = 1
 # breadboard = 1 or more depending
 # 74HC595 shift register = 3
 # LEDs = 24
 # 220 ohm resistor = 24
-# jumper wire = 24 or more +2 for the Rasp pi 4 fan
+# jumper wire = 45 +2 for the Rasp pi 4 fan
 
 # Note: use two other jumper wires for
 # the Raspberry Pi 4 fan, while in use/
@@ -26,7 +26,7 @@
 
 # This Raspberry Pi 4 Python program allows
 # users to learn all about how binary data
-# bits work with three 8b 74HC595 shift registers.
+# bits work with three 74HC595 shift registers.
 
 # We will use the breadboard method:
 
@@ -67,9 +67,9 @@ GPIO.setwarnings(False) # disable setwarnings
 # You must place these variables in this correct order as shown.
 # These pinout values won't execute right if you don't.
 
-latch=19
-data_bit=21
-clock=15
+latch=35
+data_bit=37
+clock=33
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 # Read numbers easier with the underscore_character.
 
@@ -89,7 +89,7 @@ for i in control_shift:GPIO.setup(i,GPIO.OUT)  # setup desired GPIO pinouts
 
 for i in range(24):
     GPIO.output(latch,0)
-    GPIO.output(data_bit,0)  # set all 24 data bits to 0/off
+    GPIO.output(data_bit,0)  # set all 16 data bits to 0/off
     GPIO.output(clock,1)
     GPIO.output(latch,1)
     GPIO.output(clock,0)
@@ -124,7 +124,7 @@ except KeyboardInterrupt:
 
     for i in range(24):
         GPIO.output(latch,0)
-        GPIO.output(data_bit,0) # set all 24 data bits to 0/off
+        GPIO.output(data_bit,0) # set all 16 data bits to 0/off
         GPIO.output(clock,1)
         GPIO.output(latch,1)
         GPIO.output(clock,0)
