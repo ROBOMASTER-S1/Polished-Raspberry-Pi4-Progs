@@ -93,7 +93,7 @@ for i in range(8):
     GPIO.output(clock,0)
 
 try:
-    for i in range(msb[0],lsb[0],-1): # reverse forloop and step value -1
+    for i in range(msb[0],lsb[0],-1): # reverse for loop and step value -1
         bin=f'{i:b}'
         for j in range(8):
             GPIO.output(latch,0)
@@ -103,7 +103,7 @@ try:
             GPIO.output(clock,0)
         wait(led_speed)
 
-    for i in range(lsb[1],msb[1]): # forward forloop
+    for i in range(lsb[1],msb[1]): # forward for loop
         bin=f'{i:b}'
         for j in range(8):
             GPIO.output(latch,0)
