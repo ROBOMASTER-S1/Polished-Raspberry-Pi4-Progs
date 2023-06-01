@@ -136,5 +136,5 @@ except KeyboardInterrupt:
     exec(stop_program_message) # GPIO notification message
 
     clear_all_data_bits() # call the function
-
-    GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
+    
+GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
