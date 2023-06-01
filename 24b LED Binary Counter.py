@@ -85,7 +85,7 @@ to LOW state.')'''
 
 control_shift=latch,data_bit,clock
 
-for i in control_shift:GPIO.setup(i,GPIO.OUT)  # setup desired GPIO pinouts
+for i in control_shift:GPIO.setup(i,GPIO.OUT) # setup desired GPIO pinouts
 
 for i in range(24):
     GPIO.output(latch,0)
