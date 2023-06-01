@@ -85,7 +85,7 @@ to LOW state.')'''
 
 control_shift=latch,data_bit,clock
 
-for i in control_shift:GPIO.setup(i,GPIO.OUT)  # setup desired GPIO pinouts
+for i in control_shift:GPIO.setup(i,GPIO.OUT) # setup desired GPIO pinouts
 
 # Create two functions called:
 
@@ -96,14 +96,14 @@ def clear_all_data_bits():
 
     for i in range(24):
         GPIO.output(latch,0)
-        GPIO.output(data_bit,0)  # set all 16 data bits to 0/off
+        GPIO.output(data_bit,0) # set all 16 data bits to 0/off
         GPIO.output(clock,1)
         GPIO.output(latch,1)
         GPIO.output(clock,0)
         
 def shift_all_data_bits():
 
-    for i in range(msb[0],lsb[0],-1):  # reverse forloop and step value -1
+    for i in range(msb[0],lsb[0],-1): # reverse for loop and step value -1
         bin=f'{i:b}'
         for j in range(24):
             GPIO.output(latch,0)
