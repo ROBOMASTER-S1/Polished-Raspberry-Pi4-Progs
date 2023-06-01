@@ -1,4 +1,4 @@
-# 24b Binary Counter Python program example:
+# 24b LED Binary Counter Python program example:
 
 # Created by Joseph C. Richardson, GitHub.com
 
@@ -89,13 +89,13 @@ for i in control_shift:GPIO.setup(i,GPIO.OUT)  # setup desired GPIO pinouts
 
 for i in range(24):
     GPIO.output(latch,0)
-    GPIO.output(data_bit,0)  # set all 24 data bits to 0/off
+    GPIO.output(data_bit,0) # set all 24 data bits to 0/off
     GPIO.output(clock,1)
     GPIO.output(latch,1)
     GPIO.output(clock,0)
 
 try:
-    for i in range(msb[0],lsb[0],-1):  # reverse for loop and step value -1
+    for i in range(msb[0],lsb[0],-1): # reverse for loop and step value -1
         bin=f'{i:b}'
         for j in range(24):
             GPIO.output(latch,0)
@@ -120,7 +120,7 @@ try:
 # the GPIO pins to return to a low state/off.
 
 except KeyboardInterrupt:
-    exec(stop_program_message)  # GPIO notification message
+    exec(stop_program_message) # GPIO notification message
 
     for i in range(24):
         GPIO.output(latch,0)
