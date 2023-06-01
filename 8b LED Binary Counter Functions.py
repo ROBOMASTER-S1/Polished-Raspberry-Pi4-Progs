@@ -101,7 +101,7 @@ def clear_all_data_bits():
         
 def shift_all_data_bits():
 
-    for i in range(msb[0],lsb[0],-1):  # reverse forloop and step value -1
+    for i in range(msb[0],lsb[0],-1):  # reverse for loop and step value -1
         bin=f'{i:b}'
         for j in range(8):
             GPIO.output(latch,0)
