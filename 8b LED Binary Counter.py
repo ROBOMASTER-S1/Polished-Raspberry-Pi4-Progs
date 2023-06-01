@@ -1,4 +1,4 @@
-# 8b Binary Counter Python program example:
+# 8b LED Binary Counter Python program example:
 
 # Created by Joseph C. Richardson, GitHub.com
 
