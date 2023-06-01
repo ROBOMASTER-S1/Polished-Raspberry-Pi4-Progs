@@ -1,4 +1,4 @@
-# 16b Binary Counter Python program example:
+# 16b LED Binary Counter Functions Python program example:
 
 # Created by Joseph C. Richardson, GitHub.com
 
