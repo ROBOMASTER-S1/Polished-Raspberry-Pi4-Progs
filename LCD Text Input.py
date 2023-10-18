@@ -11,7 +11,7 @@
 
 # Items needed are as follows:
 
-# Respberry Pi 4 = 1
+# Raspberry Pi 4 = 1
 # breadboard = 1
 # LCD display = 1
 # jumper wire = 4 +2 for the Rasp pi 4 fan
