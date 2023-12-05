@@ -1,14 +1,20 @@
+
+# The Complete Raspberry Pi 4 (GPIO) General Purpose Input/Output Pinouts Cheat Sheet
+# for the Rasp Pi 4 and dedicated Python commands available at your fingertips.
 '''
 Raspberry Pi 4 GPIO Pinouts Cheat Sheet for both Board
 and BCM/Broadcom settings for GPIO set modes:
+
+This is also a cheat sheet for the 74HC595 shift register
+set up and activation process
 
 Created by Joseph C. Richardson, GitHub.com
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 
-You can also use the Broadcom SOC
-Channel method if you prefer.
+You can also use the BCM/Broadcom SOC
+channel method if you prefer.
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
@@ -21,19 +27,44 @@ Please read onward to learn more.
 # any basic electronics rules. Electronics
 # demands basic math skills and knowledge
 # of electronics components alike.
-'''
-These are all the GPIO pins that you can
-use for lighting up LEDs or whatever devices
-that can 'safely' use these GPIO pins. I'm
-pretty new to using Raspberry Pi, I created
-these Cheat Sheets examples for quick
-references and understanding of the GPIO
-pin layout.
-'''
+
+# These are all the GPIO pins that you can use for lighting
+# up LEDs or whatever devices that can 'safely' use these
+# GPIO pins. I created these Cheat Sheets examples for
+# quick references and understanding of the GPIO pin layout. 
+
 # (GPIO) General Purpose Input/Output Pinouts:
 
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD) # BOARD method for physical GPIO pinouts
+GPIO.setwarnings(False) # disable setwarnings
+
+# How to set up 74HC595 shift registers:
+
+# Create variables for the RCLK, SER and SRCLK shift register inputs
+
+# You can rename all these variables to any names you wish,
+# but keep in mind that you must also rename any variables
+# in your program as well. Click the Find and Replace command
+# on the IDLE menu to make any renaming changes faster to cover
+# any variables you want to rename. However, you should stick
+# to meaningful names, so other programmers can learn and
+# understand what's happening throughout the program's
+# execution/run.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# Note: Python executes its programs from the top, downward.
+# You must place these variable values in this correct order as
+# shown. These pinout values won't execute right if you don't.
+
+RCLK = 13     # ST_CP STORAGE REG CLOCK IN
+SER = 15       # DS SERIAL DATA INPUT
+SRCLK = 11  # SH_CP SHIFT REG CLOCK IN
+
+control_shift = RCLK,SER,SRCLK
+
+for i in control_shift:GPIO.setup(i,GPIO.OUT) # setup desired GPIO pinouts
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# (GPIO) General Purpose Input/Output Pinouts Cheat Sheet for GPIO.BOARD
 
 GPIO.setup(27,GPIO.OUT) # GPIO 0
 GPIO.setup(28,GPIO.OUT) # GPIO 1
@@ -60,37 +91,128 @@ GPIO.setup(18,GPIO.OUT) # GPIO 24
 GPIO.setup(22,GPIO.OUT) # GPIO 25
 GPIO.setup(37,GPIO.OUT) # GPIO 26
 GPIO.setup(13,GPIO.OUT) # GPIO 27
-'''
-Use these GPIO commands to turn
-GPIO pins ON or OFF
 
-Example 1:
+# Use these GPIO commands to turn GPI pins ON or OFF
+
+# Example 1:
     
 GPIO.output(4,GPIO.HIGH) # On
 GPIO.output(4,GPIO.LOW) # Off
 
-Example 2:
+# Example 2:
     
 GPIO.output(4,1) # On
 GPIO.output(4,0) # Off
 
-Example 3:
-    
+# Example 3:
+
 GPIO.output(4,True) # On
 GPIO.output(4,False) # Off
 
-Note: make sure to turn off all GPIO pins
-first before stopping any programs.
+# Note: make sure to turn off all GPIO pins
+# first before stopping any programs.
 
 GPIO.cleanup() # Release all GPIO pins
 
-You can also use the Broadcom SOC
-Channel method if you prefer.
-'''
+# You can also use the GPIO.BCM broadcom SOC channel
+# method if you prefer.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# these five for loops are how you activate 74HC595 shift registers:
+
+# One 74HC595 shift register
+
+for i in range(8):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Two 74HC595 shift registers
+
+for i in range(16):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Three 74HC595 shift registers
+
+for i in range(24):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Four 74HC595 shift registers
+
+for i in range(32):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Five 74HC595 shift registers
+
+for i in range(40):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# By changing the for loop values to 8, 16, 24, 32 and 40 allows you
+# to add more 74HC595 shift registers, up to as many as you
+# please. However, you must use the right for loop value settings.
+# For example, if you had five 74HC595 shift registers, you would
+# create this for loop value (40) instead. Five 74HC595 shift registers
+# give you forty extra GPIO pinouts for your Raspberry Pi.
+
+for i in range(40):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+    
+GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
+
 # (GPIO) General Purpose Input/Output Pinouts:
 
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM) # broadcom: BCM SOC channel method
+GPIO.setwarnings(False) # disable setwarnings
+
+# How to set up 74HC595 shift registers:
+
+# Create variables for the RCLK, SER and SRCLK shift register inputs
+
+# You can rename all these variables to any names you wish,
+# but keep in mind that you must also rename any variables
+# in your program as well. Click the Find and Replace command
+# on the IDLE menu to make any renaming changes faster to cover
+# any variables you want to rename. However, you should stick
+# to meaningful names, so other programmers can learn and
+# understand what's happening throughout the program's
+# execution/run.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# Note: Python executes its programs from the top, downward.
+# You must place these variable values in this correct order as
+# shown. These pinout values won't execute right if you don't.
+
+RCLK = 27     # ST_CP STORAGE REG CLOCK IN
+SER = 22       # DS SERIAL DATA INPUT
+SRCLK = 17  # SH_CP SHIFT REG CLOCK IN
+
+control_shift = RCLK,SER,SRCLK
+
+for i in control_shift:GPIO.setup(i,GPIO.OUT) # setup desired GPIO pinouts
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# (GPIO) General Purpose Input/Output Pinouts Cheat Sheet for GPIO.BCM
+# Broadcom SOC channel
 
 GPIO.setup(0,GPIO.OUT) # PIN 27
 GPIO.setup(1,GPIO.OUT) # PIN 28
@@ -117,28 +239,114 @@ GPIO.setup(24,GPIO.OUT) # PIN 18
 GPIO.setup(25,GPIO.OUT) # PIN 22
 GPIO.setup(26,GPIO.OUT) # PIN 37
 GPIO.setup(27,GPIO.OUT) # PIN 13
-'''
-Use these GPIO commands to turn GPI pins ON or OFF
 
-Example 1:
+# Use these GPIO commands to turn GPI pins ON or OFF
+
+# Example 1:
     
 GPIO.output(7,GPIO.HIGH) # On
 GPIO.output(7,GPIO.LOW) # Off
 
-Example 2:
+# Example 2:
     
 GPIO.output(7,1) # On
 GPIO.output(7,0) # Off
 
-Example 3:
+# Example 3:
+    
 GPIO.output(7,True) # On
 GPIO.output(7,False) # Off
 
-Note: make sure to turn off all GPIO pins
-first before stopping any programs.
+# Note: make sure to turn off all GPIO pins
+# first before stopping any programs.
 
 GPIO.cleanup() # Release all GPIO pins
 
+# You can also use the GPIO.BOARD method if you prefer.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# these five for loops are how you activate 74HC595 shift registers:
+
+# One 74HC595 shift register
+
+for i in range(8):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Two 74HC595 shift registers
+
+for i in range(16):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Three 74HC595 shift registers
+
+for i in range(24):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Four 74HC595 shift registers
+
+for i in range(32):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# Five 74HC595 shift registers
+
+for i in range(40):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+
+# By changing the for loop values to 8, 16, 24, 32 and 40 allows you
+# to add more 74HC595 shift registers, up to as many as you
+# please. However, you must use the right for loop value settings.
+# For example, if you had five 74HC595 shift registers, you would
+# create this for loop value (40) instead. Five 74HC595 shift registers
+# give you forty extra GPIO pinouts for your Raspberry Pi 4.
+
+for i in range(40):            
+    GPIO.output(RCLK,0)
+    GPIO.output(SER,0) # 1 = ON/HIGH and 0 = LOWOFF
+    GPIO.output(SRCLK,1)
+    GPIO.output(RCLK,1)
+    GPIO.output(SRCLK,0)
+    
+GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
+
+# Always use a KeyboardInterrupt, try and except error handler to force
+# all GPIO pinouts to shut down to LOW/OFF state.
+
+# Note: it is recomended that you setup
+# a KeyboardInterrupt handler to force
+# the GPIO pins to return to a low state/off.
+
+try:
+    for i in range(8):
+        GPIO.output(RCLK,0)
+        GPIO.output(SER,1) # 1 = ON/HIGH and 0 = LOWOFF
+        GPIO.output(SRCLK,1)
+        GPIO.output(RCLK,1)
+        GPIO.output(SRCLK,0)
+
+except KeyboardInterrupt:
+    print('All GPIO pins are set to LOW/OFF') # GPIO notification message
+    GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF
+    break
+'''
 GitHub username: Robomaster-S1
 https://github.com/ROBOMASTER-S1
 
