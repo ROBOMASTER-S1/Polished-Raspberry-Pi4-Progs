@@ -54,8 +54,6 @@ display=drivers.Lcd() # enable the LCD display
 
 display.lcd_clear() # clear the LCD screen
 
-# Create variables for the latch, data bit and the clock.
-
 # You can rename all these variables to any names you wish,
 # but keep in mind that you must also rename any variables
 # in your program as well. Click the Find and Replace command
