@@ -91,5 +91,5 @@ try:
         time.sleep(.2)
                 
 except KeyboardInterrupt:
-    GPIO.cleanup()
+    GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
     print('Paul McWhorter: GPIO is good to go')
