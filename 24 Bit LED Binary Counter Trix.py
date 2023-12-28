@@ -320,4 +320,4 @@ for i in range(24):
     GPIO.output(RCLK,1)
     GPIO.output(SRCLK,0)
     
-GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
+GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF state
