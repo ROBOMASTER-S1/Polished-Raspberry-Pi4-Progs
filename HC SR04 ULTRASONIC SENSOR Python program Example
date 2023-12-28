@@ -51,6 +51,7 @@
 # import functions:
 
 import time,RPi.GPIO as GPIO
+from time import sleep as pause
 GPIO.setmode(GPIO.BOARD) # breadboard method
 GPIO.setwarnings(False) # disable setwarnings
 
@@ -67,8 +68,7 @@ GPIO.setwarnings(False) # disable setwarnings
 # You must place these variable values in this correct order as shown.
 # These pinout values won't execute right if you don't.
 
-trig=13
-echo=11
+trig,echo=13,11
 
 GPIO.setup(trig,GPIO.OUT)
 GPIO.setup(echo,GPIO.IN)
@@ -76,9 +76,8 @@ GPIO.setup(echo,GPIO.IN)
 # Always use a KeyboardInterrupt, try and except error handler to force
 # all GPIO pinouts to shut down to LOW/OFF state.
 
-# Note: it is recomended that you setup
-# a KeyboardInterrupt handler to force
-# the GPIO pins to return to a low state/off.
+# Note: it is recomended that you setup a KeyboardInterrupt handler to force
+# the GPIO pins to return to a low state/off via, pressing control+c
 
 try:
     while True:
@@ -95,7 +94,7 @@ try:
         echo_stop=time.time()
         ping_travel=echo_stop-echo_start
         print(int(ping_travel*1E6))
-        time.sleep(.2)
+        pause(.2)
                 
 except KeyboardInterrupt:
     GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
