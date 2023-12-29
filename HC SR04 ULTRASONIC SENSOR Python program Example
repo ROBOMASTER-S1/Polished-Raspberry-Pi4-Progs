@@ -1,4 +1,4 @@
-# 3V/5V HC SR04 ULTRASONIC SENSOR Python program Example:
+# 3V/5V HC SR04 ULTRASONIC SENSOR Python Program Example:
 
 # Created by and taught by Paul McWhorter, toptechboy.com
 # Learned by Joseph C. Richardson, GitHub.com
@@ -26,7 +26,7 @@
 # the Raspberry Pi 4 fan, while in use/
 # operation.
 
-# 3V/5V HC SR04 ULTRASONIC SENSOR Python program Example:
+# 3V/5V HC SR04 ULTRASONIC SENSOR Python Program Example:
 
 # This Raspberry Pi 4 Python program allows
 # users to have tons of fun, while learning
@@ -68,6 +68,9 @@ GPIO.setwarnings(False) # disable setwarnings
 # You must place these variable values in this correct order as shown.
 # These pinout values won't execute right if you don't.
 
+stop_program_message='''
+print('Paul McWhorter: GPIO is good to go')
+'''
 trig,echo=13,11
 
 GPIO.setup(trig,GPIO.OUT)
@@ -97,5 +100,5 @@ try:
         pause(.2)
                 
 except KeyboardInterrupt:
-    GPIO.cleanup() # GPI.cleanup() sets all GPIO pins to LOW/OFF state
-    print('Paul McWhorter: GPIO is good to go')
+    GPIO.cleanup() # GPIO.cleanup() sets all GPIO pins to LOW/OFF state
+    exec(stop_program_message)
