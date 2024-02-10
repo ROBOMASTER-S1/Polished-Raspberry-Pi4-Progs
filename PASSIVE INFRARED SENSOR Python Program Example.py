@@ -75,7 +75,7 @@ GPIO.setup(pin[2],GPIO.OUT)
 # Always use a KeyboardInterrupt, try and except error handler to force
 # all GPIO pinouts to shut down to LOW/OFF state.
 
-# Note: it is recomended that you setup a KeyboardInterrupt handler to force
+# Note: it is recommended that you setup a KeyboardInterrupt handler to force
 # the GPIO pins to return to a low state/off via, pressing control+c
 
 try:
